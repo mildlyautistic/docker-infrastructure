@@ -5,7 +5,7 @@ Proof of concept on how Docker can be used to set up a local development environ
 ## Install
 
 ```bash
-> git clone https://github.com/pardahlman/docker-infrastructure.git
+> git clone https://github.com/mildlyautistic/docker-infrastructure.git
 > cd docker-infrastructure
 > docker volume create mongodata
 > docker volume create rabbitmq
@@ -23,7 +23,7 @@ That's it. Services should be up and running on default port:
 
 ## Read more
 
-I wrote a [blog post](http://fellowdeveloper.se/2017/05/21/local-setup-in-minutes-with-docker/) about this.
+Original author wrote a [blog post](http://fellowdeveloper.se/2017/05/21/local-setup-in-minutes-with-docker/) about this.
 
 ## Feedback
 
