@@ -12,37 +12,6 @@ services:
       - 27017:27017
     command: mongod --logpath /var/log/mongodb/mongod.log
 
-  mssql:
-    image: microsoft/mssql-server-linux
-    environment:
-      - SA_PASSWORD=yourStrong(!)Password
-      - ACCEPT_EULA=Y
-    volumes:
-      - mssql:/var/opt/mssql/data/
-    ports:
-      - 1433:1433
-
-  elasticsearch:
-    image: 'library/elasticsearch:5'
-    environment:
-      ES_JAVA_OPTS: "-Xms750m -Xmx750m"
-    ports:
-      - 9200:9200
-      - 9300:9300
-    volumes:
-      - ./elastic/data:/usr/share/elasticsearch/data
-      - ./elastic/logs :/usr/share/elasticsearch/logs
-      - ./elastic/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-
-  kibana:
-    image: 'library/kibana:5'
-    ports:
-      - 5601:5601
-    depends_on:
-      - elasticsearch
-    volumes:
-      - ./kibana/kibana.yml:/etc/kibana/kibana.yml:ro
-
   rabbitmq:
     image: 'library/rabbitmq:3-management'
     ports:
@@ -54,8 +23,6 @@ services:
 
 volumes:
   mongodata:
-    external: true
-  mssql:
     external: true
   rabbitmq:
     external: true
